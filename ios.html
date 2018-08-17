@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+<title>iOS</title>
+<link rel="stylesheet" href="css/wap.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/cordova.js"></script>
+</head>
+<style>
+
+	body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+	
+}
+
+</style>
+    <script type="text/javascript">
+
+    function isQQ(){
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsQQ = sUserAgent.match(/QQ/i)=="qq";
+        if(bIsQQ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function isMicroMessenger(){
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsMicromessenger = sUserAgent.match(/MicroMessenger/i)=="micromessenger";
+        if(bIsMicromessenger) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+	//显示图片
+	function imgVisible(){
+	    var lnkimg;
+	    lnkimg = document.getElementById("img1");
+	    lnkimg.style.visibility = 'visible';
+	}
+    //隐藏图片
+    function imgHidden(){
+        var lnkimg;
+        lnkimg = document.getElementById("img1");
+        lnkimg.src ='wall_ios1.png';
+    }
+    
+        function autoclick(){
+            if (isQQ()||isMicroMessenger()){
+                imgVisible();
+            }else{
+                imgHidden();
+                location.href = "itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/xkfirst/newchinalife/master/chinalife.plist";
+            }
+
+        }
+  
+    </script>
+    <body style="overflow:hidden;background:#df7480;" onload="autoclick()">
+    <div style="width:90%;margin:auto;text-align:right;overflow:hidden;display;block;background:#df7480;">
+    <img id="img1" src="wall_ios.png" width="80%" height="auto"></div>
+
+</body>
+</html>
